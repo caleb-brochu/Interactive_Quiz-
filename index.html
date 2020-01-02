@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript Quiz</title>
+    
+</head>
+<body>
+    <div id ="header">
+        <a href="scores.html">View Highscores</a>
+        <div id = "timer"></div>
+    </div>
+    <div id = container>
+        <div id = "quizQuest">
+            <p>Press "Start" to begin quiz on Javascript.</p>
+            <input id="getStarted" type="button" value="Start Quiz"/>
+        </div>
+        <div id = "choices">
+            <div id = "A" onclick ="checkAns('A');"></div>
+            <div id = "B" onclick ="checkAns('B');"></div>
+            <div id = "C" onclick ="checkAns('C');"></div>
+            <div id = "D" onclick ="checkAns('D');"></div>
+        </div>
+        <div id = "result"></div>
+    </div>
+    <script type="text/javascript" src ="js/script.js"></script>
+</body>
+</html>
