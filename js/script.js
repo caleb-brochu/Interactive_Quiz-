@@ -6,6 +6,12 @@ let choiceB = document.getElementById("B");
 let choiceC = document.getElementById("C");
 let choiceD = document.getElementById("D");
 let resultDiv = document.getElementById("result");
+let entryForm = document.getElementById("entryForm");
+let scoreDiv = document.getElementById("yourScore");
+let submitInitials = document.querySelector("form");
+let player = document.getElementById("initialEntry")
+
+entryForm.style.display = "none";
 
 
 let questionList = [
@@ -46,7 +52,6 @@ let score = 0;
 
 startQuiz.addEventListener('click',function()
  {
-    console.log(startingTime);
     startTimer()
     renderQuest();
      
@@ -56,7 +61,7 @@ startQuiz.addEventListener('click',function()
  {
     if(questionNum === (questArryLength+1))
     {
-        alert("you ran out of questions");
+    
         stopTime();
         score = startingTime;
         
@@ -97,7 +102,8 @@ startQuiz.addEventListener('click',function()
     }, 1000);
  };
 
- function stopTime() {
+ function stopTime() 
+ {
     clearTimeout(startingTime);
  };
 
@@ -117,23 +123,29 @@ startQuiz.addEventListener('click',function()
         //write "Wrong" to resultDiv 
         resultDiv.innerHTML = "Wrong!";
     };
-    
+
     questionNum++;
     renderQuest();
 
 };
 
-
-
 function allDone(){
  // 
-    choiceA.style.display = 'none';
-    choiceB.style.display = 'none';
-    choiceC.style.display = 'none';
-    choiceD.style.display = 'none';
+    choicesDiv.style.display = 'none';
     resultDiv.style.display = 'none';
-
-    
-    //alert("you ran out of time");
+    scoreDiv.style.display = "block";
+    entryForm.style.display = "block";
+    questionDiv.innerHTML = "All Done!";
+    scoreDiv.innerHTML =  "<p>Your final score: " + score + "! </p>";
 };
+
+submitInitials.addEventListener("submit", function(event){
+
+    let playerScore = player.value + " - " + score;
+    let scoreList = JSON.parse(localStorage.getItem("scoreList")) || [];
+    scoreList.push(playerScore);
+    localStorage.setItem("scoreList", JSON.stringify(scoreList));
+   
+});
+
 
