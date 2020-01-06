@@ -1,3 +1,4 @@
+// variables 
 let startQuiz = document.getElementById("getStarted");
 let questionDiv = document.getElementById("quizQuest");
 let choicesDiv = document.getElementById("choices");
@@ -12,44 +13,49 @@ let submitInitials = document.querySelector("form");
 let player = document.getElementById("initialEntry")
 
 entryForm.style.display = "none";
+choiceA.style.display = "none";
+choiceB.style.display = "none";
+choiceC.style.display = "none";
+choiceD.style.display = "none";
 
-
+// Questions array 
 let questionList = [
     {
-        question:"This is question 1",
-        choiceA: "A",
-        choiceB: "B",
-        choiceC: "C",
-        choiceD: "D",
-        answer: "D",
+        question:"Inside which HTML element do we put the JavaScript?",
+        choiceA: "&ltscript&gt",
+        choiceB: "&ltjavascript&gt",
+        choiceC: "&ltdiv&gt",
+        choiceD: "&ltjs&gt",
+        answer: "&ltscript&gt",
     },
 
     {
-        question:"This is question 2",
-        choiceA: "A",
-        choiceB: "B",
-        choiceC: "C",
-        choiceD: "D",
-        answer: "A",
+        question:"Which built-in method calls a function for each element in the array?",
+        choiceA: "while()",
+        choiceB: "if()",
+        choiceC: "forEach()",
+        choiceD: "loop()",
+        answer: "forEach()",
     },
 
     {
-        question:"This is question 3",
-        choiceA: "A",
-        choiceB: "B",
-        choiceC: "C",
-        choiceD: "D",
-        answer: "C",
+        question:"Which of the following function of Array object removes the last element from an array and returns that element?",
+        choiceA: "push()",
+        choiceB: "pop()",
+        choiceC: "join()",
+        choiceD: "map()",
+        answer: "pop()",
     }
 ];
 
+//variables 
 let questArryLength = questionList.length -1;
 let questionNum = 0; 
 let timeSetter = document.getElementById("timer");
 let startingTime = 15*(questArryLength);
 let score = 0;
 
-
+// Start quiz event listener 
 startQuiz.addEventListener('click',function()
  {
     startTimer()
@@ -61,10 +67,8 @@ startQuiz.addEventListener('click',function()
  {
     if(questionNum === (questArryLength+1))
     {
-    
         stopTime();
         score = startingTime;
-        
         timeSetter.innerHTML = score;
         allDone();
         return;
@@ -73,6 +77,10 @@ startQuiz.addEventListener('click',function()
     {
         let q = questionList[questionNum];
         questionDiv.innerHTML ='<p>' + q.question + '</p>';
+        choiceA.style.display = 'block';
+        choiceB.style.display = 'block';
+        choiceC.style.display = 'block';
+        choiceD.style.display = 'block';
         choiceA.innerHTML = q.choiceA;
         choiceB.innerHTML = q.choiceB;
         choiceC.innerHTML = q.choiceC;
@@ -84,18 +92,18 @@ startQuiz.addEventListener('click',function()
  {
     let countDwnTimer = setInterval(function quiztimer()
     {
-        timeSetter.innerHTML = startingTime;
+        timeSetter.innerHTML = "<p>Timer: " + startingTime + "</p>";
         startingTime -= 1;
         if(questionNum == (questArryLength+1))
         {
             stopTime();
-            timeSetter.innerHTML = score;
+            timeSetter.innerHTML = "<p>Timer: " + score + "</p>";
             allDone();
         } 
         else if(startingTime <= 0)
         {
             stopTime();
-            timeSetter.innerHTML = score;
+            timeSetter.innerHTML = "<p>Timer: " + score + "</p>";
             allDone();
         };
 
@@ -111,13 +119,12 @@ startQuiz.addEventListener('click',function()
  {
     let q = questionList[questionNum]; 
     resultDiv.innerHTML = "";
-    if(answer == q.answer){
-        console.log("Correct");
+    if(answer === q.answer.value){
+
         //write "correct" to resultDiv
         resultDiv.innerHTML = "Correct!";
     }
     else{
-        console.log("Wrong");
         startingTime = startingTime - 5;
         timeSetter.innerHTML = startingTime
         //write "Wrong" to resultDiv 
@@ -128,6 +135,7 @@ startQuiz.addEventListener('click',function()
     renderQuest();
 
 };
+
 
 function allDone(){
  // 

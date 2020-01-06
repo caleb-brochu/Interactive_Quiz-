@@ -12,29 +12,31 @@
 
 <body>
     <div id ="header">
-        <a href="scores.html">View Highscores</a>
-        <div id = "timer"></div>
+        <a id="newLink" href="scores.html">View Highscores</a>
+        <div id = "timer" class = "float-right"></div>
     </div>
-    <div id = container>
-        <div id = "quizQuest">
-            <p>Press "Start" to begin quiz on Javascript.</p>
-            <input id="getStarted" type="button" value="Start Quiz"/>
-        </div>
-        <div id = "choices">
-            <div id = "A" onclick ="checkAns('A')"></div>
-            <div id = "B" onclick ="checkAns('B')"></div>
-            <div id = "C" onclick ="checkAns('C')"></div>
-            <div id = "D" onclick ="checkAns('D')"></div>
-        </div>
-        <div id = "yourScore"></div>
+    <div class = "container">
+        <div id = jumbotron>
+            <div id = "quizQuest">
+                <p>Press "Start" to begin quiz on Javascript.</p>
+                <input id="getStarted" type="button" value="Start Quiz"/>
+            </div>
+            <div id = "choices">
+                <div id = "A" onclick ="checkAns('A')"></div>
+                <div id = "B" onclick ="checkAns('B')"></div>
+                <div id = "C" onclick ="checkAns('C')"></div>
+                <div id = "D" onclick ="checkAns('D')"></div>
+            </div>
+            <div id = "yourScore"></div>
 
-        <form id="entryForm" action="scores.html" >
-            Enter your initials: <input id = "initialEntry" type="text" name="initials">
-            <input type="submit" value="Submit Scores">
-        </form>
+            <form id="entryForm" action="scores.html" >
+                Enter your initials: <input id = "initialEntry" type="text" name="initials">
+                <input type="submit" value="Submit Scores">
+            </form>
 
-        <div id = "result"></div>
-        
+            <div id = "result"></div>
+            
+        </div>
     </div>
     <script type="text/javascript" src ="js/script.js"></script>
 </body>

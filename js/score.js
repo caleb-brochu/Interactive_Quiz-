@@ -14,6 +14,7 @@ console.log(scores.length);
     var score = scores[i];
 
     var li = document.createElement("li");
+    // li.classList.add("breadcrumb");
     li.textContent = score;
     highscores.appendChild(li);
   }
