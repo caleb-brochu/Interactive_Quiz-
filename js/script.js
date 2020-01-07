@@ -90,36 +90,32 @@ startQuiz.addEventListener('click',function()
 
  function startTimer()
  {
-    let countDwnTimer = setInterval(function quiztimer()
+    let countDwnTimer = setInterval(function()
     {
         timeSetter.innerHTML = "<p>Timer: " + startingTime + "</p>";
         startingTime -= 1;
         if(questionNum == (questArryLength+1))
         {
-            stopTime();
+            clearTimeout(countDwnTimer);
             timeSetter.innerHTML = "<p>Timer: " + score + "</p>";
             allDone();
         } 
         else if(startingTime <= 0)
         {
-            stopTime();
+            clearTimeout(countDwnTimer);
             timeSetter.innerHTML = "<p>Timer: " + score + "</p>";
             allDone();
         };
 
     }, 1000);
  };
- let count = 5;
+ 
+
  function resultDisplayTimer()
  {
     setTimeout(function(){
         resultDiv.style.display = "none"; 
        }, 3000);
- };
-
- function stopTime() 
- {
-    clearTimeout(startingTime);
  };
 
  function checkAns(answer)
