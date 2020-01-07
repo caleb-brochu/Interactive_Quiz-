@@ -12,6 +12,7 @@ let scoreDiv = document.getElementById("yourScore");
 let submitInitials = document.querySelector("form");
 let player = document.getElementById("initialEntry")
 
+// Hiding choices divs 
 entryForm.style.display = "none";
 choiceA.style.display = "none";
 choiceB.style.display = "none";
@@ -67,7 +68,6 @@ startQuiz.addEventListener('click',function()
  {
     if(questionNum === (questArryLength+1))
     {
-        stopTime();
         score = startingTime;
         timeSetter.innerHTML = score;
         allDone();
@@ -129,22 +129,24 @@ startQuiz.addEventListener('click',function()
         resultDiv.innerHTML = "Correct!";
     }
     else{
+        //reduces the time remaining 
         startingTime = startingTime - 5;
         timeSetter.innerHTML = startingTime
         //write "Wrong" to resultDiv 
         resultDiv.innerHTML = "Wrong!";
     };
     
-    questionNum++;
-    resultDiv.style.display = "block"
-    resultDisplayTimer()
+    
+    questionNum++; // incriments question variable 
+    resultDiv.style.display = "block" //Makes results div visable
+    resultDisplayTimer() //Timer to stop displaying result 
     renderQuest();
 
 };
 
 
 function allDone(){
- // 
+
     choicesDiv.style.display = 'none';
     scoreDiv.style.display = "block";
     entryForm.style.display = "block";

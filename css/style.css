@@ -107,7 +107,17 @@ li
 
 #result
 {
+    
     margin-top: 10px;
     color: rgb(70, 69, 69);
     border:  rgb(70, 69, 69);
+}
+
+#timer
+{
+    margin-right:20px;
+}
+#yourScore
+{
+    padding: 10px 5px 2px 0px; 
 }
