@@ -26,7 +26,7 @@ let questionList = [
         choiceB: "&ltjavascript&gt",
         choiceC: "&ltdiv&gt",
         choiceD: "&ltjs&gt",
-        answer: "&ltscript&gt",
+        answer: "A",
     },
 
     {
@@ -35,7 +35,7 @@ let questionList = [
         choiceB: "if()",
         choiceC: "forEach()",
         choiceD: "loop()",
-        answer: "forEach()",
+        answer: "C",
     },
 
     {
@@ -44,7 +44,7 @@ let questionList = [
         choiceB: "pop()",
         choiceC: "join()",
         choiceD: "map()",
-        answer: "pop()",
+        answer: "B",
     }
 ];
 
@@ -109,6 +109,13 @@ startQuiz.addEventListener('click',function()
 
     }, 1000);
  };
+ let count = 5;
+ function resultDisplayTimer()
+ {
+    setTimeout(function(){
+        resultDiv.style.display = "none"; 
+       }, 3000);
+ };
 
  function stopTime() 
  {
@@ -119,7 +126,8 @@ startQuiz.addEventListener('click',function()
  {
     let q = questionList[questionNum]; 
     resultDiv.innerHTML = "";
-    if(answer === q.answer.value){
+    
+    if(answer === q.answer){
 
         //write "correct" to resultDiv
         resultDiv.innerHTML = "Correct!";
@@ -130,8 +138,10 @@ startQuiz.addEventListener('click',function()
         //write "Wrong" to resultDiv 
         resultDiv.innerHTML = "Wrong!";
     };
-
+    
     questionNum++;
+    resultDiv.style.display = "block"
+    resultDisplayTimer()
     renderQuest();
 
 };
@@ -140,7 +150,6 @@ startQuiz.addEventListener('click',function()
 function allDone(){
  // 
     choicesDiv.style.display = 'none';
-    resultDiv.style.display = 'none';
     scoreDiv.style.display = "block";
     entryForm.style.display = "block";
     questionDiv.innerHTML = "All Done!";

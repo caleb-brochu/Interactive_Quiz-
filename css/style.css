@@ -28,6 +28,7 @@ input
     border-radius: 5px;
     border-color: rgb(73, 1, 73);
     border-style: groove;
+    margin: 10px;
 }
 
 li
@@ -92,4 +93,21 @@ li
 #newLink
 {
     display: inline-block;
+}
+#yourScore
+{
+    color: rgb(70, 69, 69);
+    font-size: 16pt;
+}
+#entryForm
+{
+    color: rgb(70, 69, 69);
+    font-size: 16pt;
+}
+
+#result
+{
+    margin-top: 10px;
+    color: rgb(70, 69, 69);
+    border:  rgb(70, 69, 69);
 }
